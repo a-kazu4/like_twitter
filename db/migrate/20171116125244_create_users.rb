@@ -1,2 +1,12 @@
 class CreateUsers < ActiveRecord::Migration[5.0]
+  def change
+    create_table :users, force: :cascade do |t|
+      t.string   :name,            limit: 191, null:false
+      t.string   :email,           limit: 191, null:false
+      t.string   :password_digest, limit: 191, null:false
+      t.string   :remember_token,  limit: 191
+      t.datetime :created_time,                null:false
+      t.datetime :updated_time,                null:false
+    end
+  end
 end
